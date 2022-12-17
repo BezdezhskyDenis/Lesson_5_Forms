@@ -4,8 +4,27 @@
     <title>APIMeme - Meme Generator API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./CSS/style.css" />
+    <script>
+      function memeGenerator() {
+        var memeName = document.getElementById("meme");
+        var memeTopText = document.getElementById("top");
+        var memeBottomText = document.getElementById("bottom");
+        var generator = "https://www.apimeme.com/meme?";
+        var frame = document.getElementById("result");
+        var result = "";
+        result =
+          generator +
+          "meme=" +
+          memeName.value +
+          "&top=" +
+          memeTopText.value +
+          "&bottom" +
+          memeBottomText.value;
+        frame.setAttribute("src", result);
+      }
+    </script>
   </head>
-  <body>
+  <body onload="memeGenerator()">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -23,7 +42,12 @@
           >
             <div class="form-group">
               <label for="meme">Meme</label>
-              <select name="meme" id="meme" class="form-control">
+              <select
+                name="meme"
+                id="meme"
+                class="form-control"
+                oninput="memeGenerator()"
+              >
                 <option value="10-Guy">10 Guy</option>
 
                 <option value="1950s-Middle-Finger">1950s Middle Finger</option>
@@ -2551,8 +2575,10 @@
                 type="text"
                 class="form-control"
                 name="top"
+                id="top"
                 placeholder="This text will appear on the top"
                 value="Top text"
+                oninput="memeGenerator()"
               />
             </div>
             <div class="form-group">
@@ -2561,11 +2587,14 @@
                 type="text"
                 class="form-control"
                 name="bottom"
+                id="bottom"
                 placeholder="This text will appear on the bottom"
                 value="Bottom text"
+                oninput="memeGenerator()"
               />
             </div>
             <button type="submit" class="btn btn-primary">Generate</button>
+            <iframe src="" frameborder="0" id="result"></iframe>
           </form>
         </div>
       </div>

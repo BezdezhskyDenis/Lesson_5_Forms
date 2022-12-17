@@ -1,0 +1,12 @@
+#result{
+    width: 800px;
+    height: 800px;
+}
+div.form-group{
+    margin: 20px;
+    font-size: 2rem;
+
+}
+div.form-group > input, div.form-group > select{
+    font-size: 1.5rem;
+}
